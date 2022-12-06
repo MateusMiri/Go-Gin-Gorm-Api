@@ -2,7 +2,6 @@ package database
 
 import (
 	"api-avaliacao/src/config"
-	"api-avaliacao/src/models"
 	"log"
 	"time"
 
@@ -25,10 +24,12 @@ func ConnectDB() {
 	config.SetConnMaxIdleTime(10)
 	config.SetConnMaxLifetime(time.Hour)
 
-	err = db.AutoMigrate(models.Pessoa{})
-	if err != nil {
-		log.Fatal(err)
-	}
+	/*
+		err = db.AutoMigrate(models.Pessoa{})
+		if err != nil {
+			log.Fatal(err)
+		}
+	*/
 }
 
 func GetDB() *gorm.DB {
